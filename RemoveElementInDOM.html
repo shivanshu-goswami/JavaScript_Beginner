@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Remove Element Example</title>
+</head>
+<body>
+    <h1>Elements to be Removed</h1>
+    <div id="parent-container">
+        <p id="paragraph-to-remove">This paragraph will be removed.</p>
+        <ul id="list-container">
+            <li>Keep this item</li>
+            <li id="item-to-remove">This list item will disappear.</li>
+            <li>Keep this item too</li>
+        </ul>
+        <button id="remove-button">Remove Button (Self)</button>
+    </div>
+    <p>This paragraph is outside the container and will remain.</p>
+
+    <script>
+        const paragraphToRemove = document.getElementById("paragraph-to-remove");
+        if (paragraphToRemove) {
+            paragraphToRemove.remove();
+            console.log("Paragraph removed!");
+        } else {
+            console.log("Paragraph not found.");
+        }
+
+        const listContainer = document.getElementById("list-container");
+        const itemToRemove = document.getElementById("item-to-remove");
+        if (listContainer && itemToRemove) {
+            listContainer.removeChild(itemToRemove);
+            console.log("List item removed!");
+        } else {
+            console.log("List container or item not found.");
+        }
+
+        const removeButton = document.getElementById("remove-button");
+        if (removeButton) {
+            removeButton.addEventListener("click", () => {
+                removeButton.remove();
+                console.log("Button removed on click!");
+            });
+            console.log("Click the button to see it disappear.");
+        }
+    </script>
+</body>
+</html>
