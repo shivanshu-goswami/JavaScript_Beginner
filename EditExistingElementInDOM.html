@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Edit Element Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="editable-title">Original Title</h1>
+    <p id="content-paragraph" data-original="true">This is the original content.</p>
+    <img id="my-image" src="https://via.placeholder.com/150" alt="Placeholder Image">
+    <button id="action-button" class="btn">Change Text</button>
+
+    <script>
+        const titleElement = document.getElementById("editable-title");
+        titleElement.textContent = "Updated Title from JavaScript";
+
+        const paragraphElement = document.getElementById("content-paragraph");
+        paragraphElement.innerHTML = "This content is now <strong>bold</strong> and <em>italic</em>.";
+
+        const imageElement = document.getElementById("my-image");
+        imageElement.src = "https://via.placeholder.com/200/FF0000/FFFFFF?text=New+Image";
+        imageElement.alt = "A New Red Image";
+        imageElement.setAttribute("data-modified", "true");
+
+        titleElement.style.color = "green";
+        titleElement.style.backgroundColor = "#eee";
+
+        const buttonElement = document.getElementById("action-button");
+        buttonElement.classList.add("highlight");
+        buttonElement.classList.remove("btn");
+        buttonElement.textContent = "Text Changed!";
+    </script>
+</body>
+</html>
