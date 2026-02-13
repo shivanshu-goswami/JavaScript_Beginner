@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Create Element Example</title>
+</head>
+<body>
+    <h1>Dynamic Content</h1>
+    <div id="container">
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+
+        const newParagraph = document.createElement("p");
+        newParagraph.textContent = "This is a paragraph created dynamically.";
+        newParagraph.classList.add("dynamic-text");
+        container.appendChild(newParagraph);
+
+        const newList = document.createElement("ul");
+        newList.id = "dynamic-list";
+
+        const listItem1 = document.createElement("li");
+        listItem1.textContent = "Dynamic Item One";
+        newList.appendChild(listItem1);
+
+        const listItem2 = document.createElement("li");
+        listItem2.textContent = "Dynamic Item Two";
+        newList.appendChild(listItem2);
+
+        container.appendChild(newList);
+
+        const newHeading = document.createElement("h2");
+        newHeading.textContent = "Dynamically Added Section";
+        newHeading.style.color = "blue";
+
+        container.insertBefore(newHeading, newParagraph);
+    </script>
+</body>
+</html>
